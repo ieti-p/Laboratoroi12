@@ -1,6 +1,9 @@
 package com.example.secure_rest_api;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +12,26 @@ import android.view.View;
 
 public class LaunchActivity extends AppCompatActivity {
 
+
+    public static final String TOKEN_KEY = "TOKEN_KEY";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        SharedPreferences sharedPref=
+                //preference_file_key
+                getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+
+        if(sharedPref.contains(TOKEN_KEY)){
+            //todo G TO MAINACTIVITI
+
+
+        }   else{
+            //todo G TO MAINACTIVITI
+
+        }
+        //setContentView(R.layout.activity_launch);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
